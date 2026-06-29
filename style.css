@@ -306,3 +306,11 @@ p { color: #636e72; margin-bottom: 30px; font-size: 1.1rem; }
 .quiz-btn { background-color: #00b894; }
 .quiz-btn:hover { background-color: #009473; }
 footer { margin-top: 30px; font-size: 0.85rem; color: #b2bec3; }
+body { font-family: sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.game-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; width: 100%; text-align: center; position: relative; }
+.back-link { position: absolute; top: 15px; left: 15px; text-decoration: none; color: #0984e3; font-weight: bold; font-size: 0.9rem; }
+.image-container img { max-width: 100%; height: 220px; object-fit: cover; border-radius: 8px; margin: 15px 0; border: 3px solid #e5e7eb; }
+#question-text { font-size: 1.1rem; color: #374151; margin-bottom: 20px; }
+.option-btn { display: block; width: 100%; background-color: #3b82f6; color: white; border: none; padding: 12px; margin: 8px 0; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: background 0.2s; text-align: left; }
+.option-btn:hover { background-color: #2563eb; }
+.score-board { margin-top: 20px; font-weight: bold; font-size: 1.1rem; color: #059669; }
