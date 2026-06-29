@@ -444,3 +444,31 @@ function showResults() {
     </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detetive Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <a href="../index.html" class="back-link">⬅️ Voltar ao Menu</a>
+        <h1>Detetive Digital 🔍</h1>
+        <p id="description">Analise a situação abaixo e tome a decisão correta!</p>
+        
+        <div class="image-container">
+            <img id="game-image" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500" alt="Cenário">
+        </div>
+
+        <div id="question-box">
+            <h2 id="question-text">Carregando pergunta...</h2>
+            <div id="options-container"></div>
+        </div>
+
+        <div class="score-board">Pontuação: <span id="score">0</span></div>
+    </div>
+</body>
+</html>
