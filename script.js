@@ -422,3 +422,25 @@ function showResults() {
         badgeIcon.innerText = "🛡️"; badgeName.innerText = "Navegador Consciente";
     }
 }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Cidadania Digital - 1º Ano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Portal da Cidadania Digital 🌐</h1>
+        <p>Escolha um dos minijogos abaixo para testar seus conhecimentos e navegar com segurança!</p>
+        
+        <div class="button-group">
+            <a href="jogo-cenarios/index.html" class="menu-btn">🔍 Jogo 1: Detetive Digital</a>
+            <a href="jogo-quiz/index.html" class="menu-btn quiz-btn">🏆 Jogo 2: Super Quiz Interativo</a>
+        </div>
+        
+        <footer>Projeto desenvolvido para o 1º Ano do Ensino Médio</footer>
+    </div>
+</body>
+</html>
