@@ -86,3 +86,163 @@ function handleAnswer(isCorrect) {
 
 // Inicia o jogo
 loadPhase();
+const questions = [
+    {
+        question: "O que caracteriza a 'Pegada Digital' (Digital Footprint)?",
+        image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500", 
+        answers: [
+            { text: "O rastro de dados que deixamos ao navegar na internet.", correct: true },
+            { text: "A quantidade de memória que um aplicativo ocupa.", correct: false },
+            { text: "O tempo gasto olhando para a tela do celular.", correct: false },
+            { text: "Um vírus que rastreia cliques do teclado.", correct: false }
+        ]
+    },
+    {
+        question: "Você vê uma foto comprometedora de um colega em um grupo. Qual a melhor postura ética?",
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500",
+        answers: [
+            { text: "Apagar e alertar quem enviou sobre o respeito à privacidade.", correct: true },
+            { text: "Salvar na galeria para ter provas caso dê algum problema.", correct: false },
+            { text: "Encaminhar apenas para o seu melhor amigo de confiança.", correct: false },
+            { text: "Rir e mandar um sticker de brincadeira.", correct: false }
+        ]
+    },
+    {
+        question: "Qual o principal objetivo da LGPD (Lei Geral de Proteção de Dados)?",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500",
+        answers: [
+            { text: "Proibir os jovens de usarem redes sociais à noite.", correct: false },
+            { text: "Garantir a segurança e privacidade dos seus dados pessoais.", correct: true },
+            { text: "Tornar a internet gratuita para todas as escolas.", correct: false },
+            { text: "Controlar o tipo de jogo que pode ser baixado.", correct: false }
+        ]
+    },
+    {
+        question: "Ao criar um perfil público nas redes, o que NÃO se deve expor?",
+        image: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?w=500",
+        answers: [
+            { text: "Seu nome artístico ou apelido favorito.", correct: false },
+            { text: "Fotos da sua rotina diária sem uniformes ou locais específicos.", correct: false },
+            { text: "Seus gostos musicais e hobbies.", correct: false },
+            { text: "Localização em tempo real, endereço residencial e documentos.", correct: true }
+        ]
+    }
+];
+
+let shuffledQuestions, currentQuestionIndex;
+let score = 0;
+
+const quizScreen = document.getElementById('quiz-screen');
+const resultScreen = document.getElementById('result-screen');
+const questionElement = document.getElementById('question-title');
+const imageElement = document.getElementById('quiz-image');
+const answerButtonsElement = document.getElementById('answer-buttons');
+const nextButton = document.getElementById('next-btn');
+const restartButton = document.getElementById('restart-btn');
+const progressBar = document.getElementById('progress-bar');
+
+const resultText = document.getElementById('result-text');
+const badgeIcon = document.getElementById('badge-icon');
+const badgeName = document.getElementById('badge-name');
+
+startGame();
+
+function startGame() {
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    currentQuestionIndex = 0;
+    score = 0;
+    quizScreen.classList.remove('hide');
+    resultScreen.classList.add('hide');
+    nextButton.classList.add('hide');
+    setNextQuestion();
+}
+
+function setNextQuestion() {
+    resetState();
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    updateProgressBar();
+}
+
+function showQuestion(question) {
+    questionElement.innerText = question.question;
+    imageElement.src = question.image;
+    
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener('click', selectAnswer);
+        answerButtonsElement.appendChild(button);
+    });
+}
+
+function resetState() {
+    nextButton.classList.add('hide');
+    while (answerButtonsElement.firstChild) {
+        answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+    }
+}
+
+function selectAnswer(e) {
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct === "true";
+    
+    if (correct) {
+        selectedButton.classList.add('correct');
+        score++;
+    } else {
+        selectedButton.classList.add('wrong');
+        // Mostra a resposta certa mesmo se o aluno errar
+        Array.from(answerButtonsElement.children).forEach(button => {
+            if (button.dataset.correct === "true") {
+                button.classList.add('correct');
+            }
+        });
+    }
+
+    // Desativa todos os botões após o clique
+    Array.from(answerButtonsElement.children).forEach(button => {
+        button.disabled = true;
+    });
+
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove('hide');
+    } else {
+        setTimeout(showResults, 1500); // Vai para o resultado após 1.5s
+    }
+}
+
+function updateProgressBar() {
+    const progressPercentage = ((currentQuestionIndex) / shuffledQuestions.length) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+}
+
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex++;
+    setNextQuestion();
+});
+
+restartButton.addEventListener('click', startGame);
+
+function showResults() {
+    progressBar.style.width = '100%';
+    quizScreen.classList.add('hide');
+    resultScreen.classList.remove('hide');
+    
+    resultText.innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
+    
+    // Sistema de Rankings Dinâmicos
+    if (score === questions.length) {
+        badgeIcon.innerText = "👑";
+        badgeName.innerText = "Embaixador da Cidadania Digital";
+    } else if (score >= questions.length / 2) {
+        badgeIcon.innerText = "🛡️";
+        badgeName.innerText = "Navegador Consciente";
+    } else {
+        badgeIcon.innerText = "📚";
+        badgeName.innerText = "Aprendiz Digital (Hora de estudar mais!)";
+    }
+}
