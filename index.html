@@ -174,3 +174,36 @@
     </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="quiz-container">
+        <a href="../index.html" class="back-link">⬅️ Menu</a>
+        <div class="progress-container"><div id="progress-bar"></div></div>
+
+        <div id="quiz-screen">
+            <h2 id="question-title">Pergunta</h2>
+            <div class="image-box"><img id="quiz-image" src="" alt="Quiz"></div>
+            <div id="answer-buttons" class="btn-grid"></div>
+            <button id="next-btn" class="hide">Próxima Pergunta ➡️</button>
+        </div>
+
+        <div id="result-screen" class="hide">
+            <h2>Resultado do Quiz 🏆</h2>
+            <p id="result-text"></p>
+            <div class="badge-box">
+                <span id="badge-icon">🏅</span>
+                <h3 id="badge-name">Nível</h3>
+            </div>
+            <button id="restart-btn">Jogar Novamente 🔄</button>
+        </div>
+    </div>
+</body>
+</html>
