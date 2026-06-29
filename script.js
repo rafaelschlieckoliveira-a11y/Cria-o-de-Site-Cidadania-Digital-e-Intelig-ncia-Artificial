@@ -472,3 +472,112 @@ function showResults() {
     </div>
 </body>
 </html>
+const questions = [
+    {
+        question: "O que caracteriza a 'Pegada Digital' (Digital Footprint)?",
+        image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=500", 
+        answers: [
+            { text: "O rastro de dados que deixamos ao navegar na internet.", correct: true },
+            { text: "A quantidade de memória que um aplicativo ocupa.", correct: false },
+            { text: "O tempo gasto olhando para a tela do celular.", correct: false }
+        ]
+    },
+    {
+        question: "Ao criar um perfil público nas redes, o que NÃO se deve expor?",
+        image: "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?w=500",
+        answers: [
+            { text: "Seus gostos musicais e hobbies.", correct: false },
+            { text: "Localização em tempo real, endereço residencial e documentos.", correct: true }
+        ]
+    }
+];
+
+let shuffledQuestions, currentQuestionIndex, score;
+
+document.addEventListener("DOMContentLoaded", () => {
+    startGame();
+    document.getElementById('next-btn').addEventListener('click', () => {
+        currentQuestionIndex++;
+        setNextQuestion();
+    });
+    document.getElementById('restart-btn').addEventListener('click', startGame);
+});
+
+function startGame() {
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    currentQuestionIndex = 0;
+    score = 0;
+    document.getElementById('quiz-screen').classList.remove('hide');
+    document.getElementById('result-screen').classList.add('hide');
+    setNextQuestion();
+}
+
+function setNextQuestion() {
+    resetState();
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    updateProgressBar();
+}
+
+function showQuestion(question) {
+    document.getElementById('question-title').innerText = question.question;
+    document.getElementById('quiz-image').src = question.image;
+    
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn');
+        if (answer.correct) button.dataset.correct = answer.correct;
+        button.addEventListener('click', selectAnswer);
+        document.getElementById('answer-buttons').appendChild(button);
+    });
+}
+
+function resetState() {
+    document.getElementById('next-btn').classList.add('hide');
+    const buttons = document.getElementById('answer-buttons');
+    while (buttons.firstChild) buttons.removeChild(buttons.firstChild);
+}
+
+function selectAnswer(e) {
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct === "true";
+    
+    if (correct) {
+        selectedButton.classList.add('correct');
+        score++;
+    } else {
+        selectedButton.classList.add('wrong');
+    }
+
+    Array.from(document.getElementById('answer-buttons').children).forEach(button => {
+        if (button.dataset.correct === "true") button.classList.add('correct');
+        button.disabled = true;
+    });
+
+    if (shuffledQuestions.length > currentQuestionIndex + 1) {
+        document.getElementById('next-btn').classList.remove('hide');
+    } else {
+        setTimeout(showResults, 1200);
+    }
+}
+
+function updateProgressBar() {
+    const progressPercentage = (currentQuestionIndex / shuffledQuestions.length) * 100;
+    document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
+}
+
+function showResults() {
+    document.getElementById('progress-bar').style.width = '100%';
+    document.getElementById('quiz-screen').classList.add('hide');
+    document.getElementById('result-screen').classList.remove('hide');
+    document.getElementById('result-text').innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
+    
+    const badgeIcon = document.getElementById('badge-icon');
+    const badgeName = document.getElementById('badge-name');
+
+    if (score === questions.length) {
+        badgeIcon.innerText = "👑"; badgeName.innerText = "Embaixador Digital";
+    } else {
+        badgeIcon.innerText = "🛡️"; badgeName.innerText = "Navegador Consciente";
+    }
+}
