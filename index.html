@@ -4,181 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cidadania Digital e IA</title>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
-            padding-bottom: 40px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 4px solid #00ffcc;
-        }
-
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            color: #00ffcc;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .secao {
-            background: #fff;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            color: #203a43;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Estilos do Jogo / Quiz */
-        .quiz-box {
-            background-color: #eef2f3;
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 15px;
-        }
-
-        .pergunta-texto {
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .btn-resposta {
-            display: block;
-            width: 100%;
-            background: #fff;
-            border: 2px solid #203a43;
-            color: #203a43;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: left;
-            font-size: 1rem;
-            transition: 0.2s ease;
-        }
-
-        .btn-resposta:hover {
-            background: #203a43;
-            color: #fff;
-        }
-
-        #mensagem-feedback {
-            margin-top: 15px;
-            font-weight: bold;
-            padding: 10px;
-            border-radius: 4px;
-            display: none;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Cidadania Digital e Inteligência Artificial</h1>
-        <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
+        <div class="container">
+            <h1>Cidadania Digital & IA</h1>
+            <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
+        </div>
     </header>
 
-    <div class="container">
+    <nav>
+        <a href="#sobre">Sobre o Tema</a>
+        <a href="#perigos">Os Perigos</a>
+        <a href="#como-identificar">Como Identificar</a>
+        <a href="#quiz">Teste seus Conhecimentos</a>
+    </nav>
+
+    <main class="container">
         
-        <section class="secao">
-            <h2>O que são Deepfakes?</h2>
-            <p>Deepfakes são vídeos, áudios ou imagens alterados de forma profunda por meio de Inteligência Artificial. Elas conseguem trocar rostos e clonar vozes de maneira assustadoramente realista, sendo frequentemente utilizadas para espalhar <strong>fake news</strong> e manipular a opinião pública.</p>
+        <section id="sobre">
+            <h2>O que são Deepfakes e Desinformação?</h2>
+            <p>Com o avanço da Inteligência Artificial, tornou-se extremamente fácil criar mídias sintéticas — vídeos, áudios e imagens falsas que parecem perfeitamente reais. Isso é o que chamamos de <strong>Deepfake</strong>.</p>
+            <p>Quando essa tecnologia é usada para espalhar mentiras de forma automatizada, ela potencializa a <strong>desinformação</strong> (as famosas <em>fake news</em>), prejudicando a reputação de pessoas e enganando a sociedade.</p>
         </section>
 
-        <section class="secao">
-            <h2>Como Combater a Desinformação?</h2>
-            <p>Para exercer sua cidadania digital de forma responsável, siga estes passos antes de repassar qualquer conteúdo:</p>
+        <hr>
+
+        <section id="perigos">
+            <h2>Os Perigos na Sociedade</h2>
             <ul>
-                <li><strong>Desconfie do absurdo:</strong> Se uma notícia parece chocante demais, cheque em portais conhecidos.</li>
-                <li><strong>Olhe os detalhes:</strong> Deepfakes em vídeo costumam ter piscadas de olhos estranhas ou falhas nas bordas do rosto.</li>
-                <li><strong>Consulte agências de checagem:</strong> Sites especializados ajudam a desmentir boatos que correm na internet.</li>
+                <li><strong>Fraudes Finanças e Golpes:</strong> Uso de voz clonada de parentes para pedir dinheiro.</li>
+                <li><strong>Manipulação Política:</strong> Criação de discursos falsos de candidatos para influenciar eleições.</li>
+                <li><strong>Danos à Reputação:</strong> Difamação de estudantes e professores no ambiente escolar.</li>
             </ul>
         </section>
 
-        <section class="secao">
-            <h2>Desafio Interativo</h2>
-            <p>Teste seus reflexos digitais contra a desinformação:</p>
+        <hr>
+
+        <section id="como-identificar">
+            <h2>Guia de Sobrevivência Digital: Como Identificar?</h2>
+            <p>Fique atento aos seguintes detalhes ao consumir conteúdos suspeitos na internet:</p>
+            <ol>
+                <li><strong>Piscadas não naturais:</strong> Rostos gerados por IA costumam piscar menos ou de forma estranha.</li>
+                <li><strong>Erros de iluminação:</strong> Sombras desalinhadas ou brilho estranho nos olhos e dentes.</li>
+                <li><strong>Áudio dessincronizado:</strong> O movimento dos lábios não bate perfeitamente com a fala.</li>
+                <li><strong>Verifique a fonte:</strong> Procure a notícia em agências de checagem confiáveis antes de compartilhar.</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section id="quiz">
+            <h2>Interativo: Você sabe identificar uma Fake News?</h2>
+            <p>Responda à pergunta abaixo para testar sua segurança digital:</p>
             
-            <div class="quiz-box">
-                <p class="pergunta-texto">Você recebeu um áudio em um aplicativo de mensagens onde um político famoso confessa um crime grave, mas nenhum site de notícias está falando sobre isso. O que fazer?</p>
-                
-                <button class="btn-resposta" onclick="verificar(false)">A) Compartilhar logo com os amigos para avisar todo mundo o quanto antes.</button>
-                <button class="btn-resposta" onclick="verificar(true)">B) Não compartilhar e pesquisar se a voz não foi clonada por Inteligência Artificial.</button>
-                <button class="btn-resposta" onclick="verificar(false)">C) Acreditar totalmente, afinal, a voz é perfeitamente idêntica à dele.</button>
-                
-                <div id="mensagem-feedback"></div>
+            <div class="quiz-container">
+                <p><strong>Se você recebeu um vídeo bombástico de um famoso no WhatsApp pedindo dinheiro ou PIX, o que você faz?</strong></p>
+                <button onclick="verificarResposta(false)">A) Compartilho imediatamente com meus amigos.</button>
+                <button onclick="verificarResposta(true)">B) Desconfio, não compartilho e procuro fontes oficiais.</button>
+                <p id="resultado-quiz"></p>
             </div>
         </section>
 
-        <footer>
-            <p>&copy; 2026 - Atividade de Recuperação Prática | Educação Digital e IA</p>
-        </footer>
+    </main>
 
-    </div>
+    <footer>
+        <p>&copy; 2026 - Projeto de Educação Digital e IA. Pratique a Cidadania Digital.</p>
+    </footer>
 
-    <script>
-        function verificar(respostaCorreta) {
-            const feedback = document.getElementById("mensagem-feedback");
-            feedback.style.display = "block";
-            
-            if (respostaCorreta) {
-                feedback.innerText = "✅ Perfeito! Clonagem de voz por IA é uma realidade comum hoje. Sempre cheque os fatos antes de passar adiante.";
-                feedback.style.backgroundColor = "#d4edda";
-                feedback.style.color = "#155724";
-                feedback.style.border = "1px solid #c3e6cb";
-            } else {
-                feedback.innerText = "❌ Cuidado! É assim que as fake news automatizadas se espalham. O correto é sempre investigar antes de enviar.";
-                feedback.style.backgroundColor = "#f8d7da";
-                feedback.style.color = "#721c24";
-                feedback.style.border = "1px solid #f5c6cb";
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
