@@ -1,66 +1,45 @@
-const phases = [
-    {
-        question: "Você recebeu uma mensagem alarmante num grupo dizendo que as aulas serão canceladas amanhã devido a um vírus misterioso, sem link de fonte oficial. O que você faz?",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500",
-        options: [
-            { text: "Compartilho imediatamente nos outros grupos para alertar meus amigos.", correct: false },
-            { text: "Não compartilho e procuro o site oficial da escola para checar a informação.", correct: true }
-        ]
-    },
-    {
-        question: "Um colega da turma está recebendo comentários ofensivos e piadas pesadas em uma foto dele no Instagram. Qual a atitude correta de cidadania digital?",
-        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=500",
-        options: [
-            { text: "Apoio o colega no privado e ajudo a denunciar os comentários ofensivos na plataforma.", correct: true },
-            { text: "Deixo para lá, afinal a internet é livre e é apenas uma brincadeira.", correct: false }
-        ]
-    }
-];
+// Dados do Quiz
+const dadosQuiz = {
+    pergunta: "Você recebeu um vídeo bombástico de um influenciador no WhatsApp. O que você deve fazer antes de compartilhar?",
+    alternativas: [
+        { texto: "Compartilhar imediatamente nos grupos da família.", correta: false },
+        { texto: "Procurar se portais de notícias confiáveis estão falando sobre o assunto.", correta: true },
+        { texto: "Acreditar no vídeo se a imagem parecer muito realista.", false }
+    ]
+};
 
-let currentPhaseIndex = 0;
-let score = 0;
+// Elementos da página
+const elementoPergunta = document.getElementById("pergunta");
+const elementoAlternativas = document.getElementById("alternativas");
+const elementoResultado = document.getElementById("resultado-quiz");
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadPhase();
-});
+// Inicializar Quiz
+function carregarQuiz() {
+    elementoPergunta.innerText = dadosQuiz.pergunta;
+    elementoAlternativas.innerHTML = ""; // Limpa alternativas anteriores
 
-function loadPhase() {
-    const questionText = document.getElementById("question-text");
-    const gameImage = document.getElementById("game-image");
-    const optionsContainer = document.getElementById("options-container");
-
-    if (!questionText || !gameImage || !optionsContainer) return;
-
-    optionsContainer.innerHTML = "";
-
-    if (currentPhaseIndex >= phases.length) {
-        questionText.innerText = `Parabéns! Você concluiu o desafio. Sua pontuação final foi de ${score} pontos.`;
-        gameImage.src = "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500";
-        return;
-    }
-
-    const currentPhase = phases[currentPhaseIndex];
-    questionText.innerText = currentPhase.question;
-    gameImage.src = currentPhase.image;
-
-    currentPhase.options.forEach(option => {
-        const button = document.createElement("button");
-        button.innerText = option.text;
-        button.classList.add("option-btn");
-        button.addEventListener("click", () => handleAnswer(option.correct));
-        optionsContainer.appendChild(button);
+    dadosQuiz.alternativas.forEach((opcao, index) => {
+        const botao = document.createElement("button");
+        botao.innerText = opcao.texto;
+        botao.classList.add("btn-opcao");
+        
+        // Adiciona o evento de clique para validar a resposta
+        botao.addEventListener("click", () => verificarResposta(opcao.correta));
+        
+        elementoAlternativas.appendChild(botao);
     });
 }
 
-function handleAnswer(isCorrect) {
-    if (isCorrect) {
-        alert("Resposta Correta! +10 pontos. 🎉");
-        score += 10;
+// Verificar a resposta selecionada
+function verificarResposta(eCorreta) {
+    if (eCorreta) {
+        elementoResultado.innerText = "✅ Correto! Checar fontes confiáveis antes de espalhar conteúdo evita a desinformação.";
+        elementoResultado.style.color = "#28a745";
     } else {
-        alert("Ops, essa não é a melhor prática de Cidadania Digital. 😕");
+        elementoResultado.innerText = "❌ Incorreto. Compartilhar sem checar espalha notícias falsas e prejudica a cidadania digital.";
+        elementoResultado.style.color = "#dc3545";
     }
-    
-    document.getElementById("score").innerText = score;
-    currentPhaseIndex++;
-    loadPhase();
 }
+
+// Executar ao carregar a página
+window.onload = carregarQuiz;
