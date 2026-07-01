@@ -3,55 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital e IA: O Impacto das Deepfakes</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cidadania Digital e IA</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 4px solid #00ffcc;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #00ffcc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .secao {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: #203a43;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Estilos do Jogo / Quiz */
+        .quiz-box {
+            background-color: #eef2f3;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .pergunta-texto {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .btn-resposta {
+            display: block;
+            width: 100%;
+            background: #fff;
+            border: 2px solid #203a43;
+            color: #203a43;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1rem;
+            transition: 0.2s ease;
+        }
+
+        .btn-resposta:hover {
+            background: #203a43;
+            color: #fff;
+        }
+
+        #mensagem-feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <h1>Cidadania Digital & IA</h1>
-            <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
-        </div>
+        <h1>Cidadania Digital e Inteligência Artificial</h1>
+        <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
     </header>
 
-    <main class="container">
-        <section id="introducao" class="card">
-            <h2>O que está acontecendo?</h2>
-            <p>Com o avanço da Inteligência Artificial, a criação de conteúdos falsos se tornou extremamente realista. Vídeos, áudios e imagens manipulados — conhecidos como <strong>Deepfakes</strong> — são usados para espalhar desinformação (fake news) em massa, impactando a reputação de pessoas e a segurança da sociedade.</p>
+    <div class="container">
+        
+        <section class="secao">
+            <h2>O que são Deepfakes?</h2>
+            <p>Deepfakes são vídeos, áudios ou imagens alterados de forma profunda por meio de Inteligência Artificial. Elas conseguem trocar rostos e clonar vozes de maneira assustadoramente realista, sendo frequentemente utilizadas para espalhar <strong>fake news</strong> e manipular a opinião pública.</p>
         </section>
 
-        <section id="dicas" class="card">
-            <h2>Como identificar uma Deepfake?</h2>
-            <p>Embora a IA esteja cada vez melhor, você ainda pode notar sinais de manipulação física e contextual:</p>
+        <section class="secao">
+            <h2>Como Combater a Desinformação?</h2>
+            <p>Para exercer sua cidadania digital de forma responsável, siga estes passos antes de repassar qualquer conteúdo:</p>
             <ul>
-                <li><strong>Piscadas irreais:</strong> Muitas vezes o rosto pisca pouco ou de forma artificial.</li>
-                <li><strong>Falhas nos detalhes:</strong> Preste atenção nas orelhas, óculos, sombras e cabelos.</li>
-                <li><strong>Sincronia do áudio:</strong> O movimento dos lábios condiz perfeitamente com o som?</li>
-                <li><strong>Contexto absurdo:</strong> Desconfie de declarações bombásticas de figuras públicas. Busque fontes confiáveis.</li>
+                <li><strong>Desconfie do absurdo:</strong> Se uma notícia parece chocante demais, cheque em portais conhecidos.</li>
+                <li><strong>Olhe os detalhes:</strong> Deepfakes em vídeo costumam ter piscadas de olhos estranhas ou falhas nas bordas do rosto.</li>
+                <li><strong>Consulte agências de checagem:</strong> Sites especializados ajudam a desmentir boatos que correm na internet.</li>
             </ul>
         </section>
 
-        <section id="quiz-section" class="card">
-            <h2>Teste seus Conhecimentos</h2>
-            <p>Você sabe como agir de forma segura na internet? Responda rápido:</p>
+        <section class="secao">
+            <h2>Desafio Interativo</h2>
+            <p>Teste seus reflexos digitais contra a desinformação:</p>
             
-            <div id="quiz-container">
-                <p id="pergunta">Carregando pergunta...</p>
-                <div id="alternativas">
-                    </div>
-                <p id="resultado-quiz"></p>
+            <div class="quiz-box">
+                <p class="pergunta-texto">Você recebeu um áudio em um aplicativo de mensagens onde um político famoso confessa um crime grave, mas nenhum site de notícias está falando sobre isso. O que fazer?</p>
+                
+                <button class="btn-resposta" onclick="verificar(false)">A) Compartilhar logo com os amigos para avisar todo mundo o quanto antes.</button>
+                <button class="btn-resposta" onclick="verificar(true)">B) Não compartilhar e pesquisar se a voz não foi clonada por Inteligência Artificial.</button>
+                <button class="btn-resposta" onclick="verificar(false)">C) Acreditar totalmente, afinal, a voz é perfeitamente idêntica à dele.</button>
+                
+                <div id="mensagem-feedback"></div>
             </div>
         </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 - Projeto Escolar de Educação Digital e IA</p>
-            <p>Promovendo a Cidadania Digital Responsável</p>
-        </div>
-    </footer>
+        <footer>
+            <p>&copy; 2026 - Atividade de Recuperação Prática | Educação Digital e IA</p>
+        </footer>
 
-    <script src="script.js"></script>
+    </div>
+
+    <script>
+        function verificar(respostaCorreta) {
+            const feedback = document.getElementById("mensagem-feedback");
+            feedback.style.display = "block";
+            
+            if (respostaCorreta) {
+                feedback.innerText = "✅ Perfeito! Clonagem de voz por IA é uma realidade comum hoje. Sempre cheque os fatos antes de passar adiante.";
+                feedback.style.backgroundColor = "#d4edda";
+                feedback.style.color = "#155724";
+                feedback.style.border = "1px solid #c3e6cb";
+            } else {
+                feedback.innerText = "❌ Cuidado! É assim que as fake news automatizadas se espalham. O correto é sempre investigar antes de enviar.";
+                feedback.style.backgroundColor = "#f8d7da";
+                feedback.style.color = "#721c24";
+                feedback.style.border = "1px solid #f5c6cb";
+            }
+        }
+    </script>
 </body>
 </html>
