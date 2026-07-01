@@ -3,48 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Cidadania Digital - 1º Ano</title>
+    <title>Cidadania Digital e IA: O Impacto das Deepfakes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menu-container">
-        <h1>Portal da Cidadania Digital 🌐</h1>
-        <p>Escolha um dos minijogos abaixo para testar seus conhecimentos e navegar com segurança!</p>
-        
-        <div class="button-group">
-            <a href="jogo-cenarios/index.html" class="menu-btn">🔍 Jogo 1: Detetive Digital</a>
-            <a href="jogo-quiz/index.html" class="menu-btn quiz-btn">🏆 Jogo 2: Super Quiz Interativo</a>
-        </div>
-        
-        <footer>Projeto desenvolvido para o 1º Ano do Ensino Médio</footer>
-    </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detetive Digital</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <div class="game-container">
-        <a href="../index.html" class="back-link">⬅️ Voltar ao Menu</a>
-        <h1>Detetive Digital 🔍</h1>
-        <p id="description">Analise a situação abaixo e tome a decisão correta!</p>
-        
-        <div class="image-container">
-            <img id="game-image" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500" alt="Cenário">
-        </div>
 
-        <div id="question-box">
-            <h2 id="question-text">Carregando pergunta...</h2>
-            <div id="options-container"></div>
+    <header>
+        <div class="container">
+            <h1>Cidadania Digital & IA</h1>
+            <p>O Impacto das Deepfakes e da Desinformação na Sociedade</p>
         </div>
+    </header>
 
-        <div class="score-board">Pontuação: <span id="score">0</span></div>
-    </div>
+    <main class="container">
+        <section id="introducao" class="card">
+            <h2>O que está acontecendo?</h2>
+            <p>Com o avanço da Inteligência Artificial, a criação de conteúdos falsos se tornou extremamente realista. Vídeos, áudios e imagens manipulados — conhecidos como <strong>Deepfakes</strong> — são usados para espalhar desinformação (fake news) em massa, impactando a reputação de pessoas e a segurança da sociedade.</p>
+        </section>
+
+        <section id="dicas" class="card">
+            <h2>Como identificar uma Deepfake?</h2>
+            <p>Embora a IA esteja cada vez melhor, você ainda pode notar sinais de manipulação física e contextual:</p>
+            <ul>
+                <li><strong>Piscadas irreais:</strong> Muitas vezes o rosto pisca pouco ou de forma artificial.</li>
+                <li><strong>Falhas nos detalhes:</strong> Preste atenção nas orelhas, óculos, sombras e cabelos.</li>
+                <li><strong>Sincronia do áudio:</strong> O movimento dos lábios condiz perfeitamente com o som?</li>
+                <li><strong>Contexto absurdo:</strong> Desconfie de declarações bombásticas de figuras públicas. Busque fontes confiáveis.</li>
+            </ul>
+        </section>
+
+        <section id="quiz-section" class="card">
+            <h2>Teste seus Conhecimentos</h2>
+            <p>Você sabe como agir de forma segura na internet? Responda rápido:</p>
+            
+            <div id="quiz-container">
+                <p id="pergunta">Carregando pergunta...</p>
+                <div id="alternativas">
+                    </div>
+                <p id="resultado-quiz"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 - Projeto Escolar de Educação Digital e IA</p>
+            <p>Promovendo a Cidadania Digital Responsável</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
