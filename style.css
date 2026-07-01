@@ -7,24 +7,23 @@
 }
 
 body {
-    background-color: #f0f2f5;
+    background-color: #f4f7f6;
     color: #333;
     line-height: 1.6;
 }
 
 .container {
-    width: 90%;
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
+    padding: 20px;
 }
 
-/* Header */
+/* Cabeçalho */
 header {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: #fff;
-    padding: 40px 0;
+    color: white;
     text-align: center;
-    border-bottom: 5px solid #00d2ff;
+    padding: 40px 0;
 }
 
 header h1 {
@@ -32,77 +31,91 @@ header h1 {
     margin-bottom: 10px;
 }
 
-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+/* Menu de Navegação */
+nav {
+    background-color: #222;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Conteúdo Principal e Cards */
+nav a {
+    display: inline-block;
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: #00bcd4;
+}
+
+/* Conteúdo Principal */
 main {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.card {
-    background: #fff;
-    padding: 25px;
+    background-color: white;
+    margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.card h2 {
+section {
+    padding: 20px 0;
+}
+
+h2 {
     color: #1e3c72;
     margin-bottom: 15px;
-    border-left: 5px solid #00d2ff;
-    padding-left: 10px;
 }
 
-.card p {
+p {
     margin-bottom: 15px;
 }
 
-ul {
-    list-style-position: inside;
-    margin-left: 10px;
+ul, ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
 }
 
-ul li {
-    margin-bottom: 10px;
+li {
+    margin-bottom: 8px;
 }
 
-/* Estilo do Quiz Interativo */
-#quiz-container {
-    background: #f8f9fa;
+hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px 0;
+}
+
+/* Seção do Quiz Interativo */
+.quiz-container {
+    background-color: #eef2f7;
     padding: 20px;
     border-radius: 6px;
-    border: 1px solid #dee2e6;
+    border-left: 5px solid #1e3c72;
 }
 
-#pergunta {
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.btn-opcao {
+button {
     display: block;
     width: 100%;
-    background: #fff;
-    border: 2px solid #1e3c72;
-    color: #1e3c72;
+    background-color: #1e3c72;
+    color: white;
+    border: none;
     padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+    margin: 10px 0;
+    border-radius: 4px;
     cursor: pointer;
-    text-align: left;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    text-align: left;
+    transition: background 0.2s;
 }
 
-.btn-opcao:hover {
-    background: #1e3c72;
-    color: #fff;
+button:hover {
+    background-color: #2a5298;
 }
 
 #resultado-quiz {
@@ -113,9 +126,9 @@ ul li {
 
 /* Rodapé */
 footer {
-    background: #222;
-    color: #fff;
+    background-color: #222;
+    color: white;
     text-align: center;
     padding: 20px 0;
-    font-size: 0.9rem;
+    margin-top: 40px;
 }
